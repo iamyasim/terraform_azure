@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "rg1" {
-    name = "user-xsfqtwwchxum"
-    location = "eastus"
+    name = var.resource_group_name
+    location = var.region
 
     tags = {
         environment = var.enviroment
