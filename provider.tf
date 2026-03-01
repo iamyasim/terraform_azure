@@ -16,9 +16,9 @@ terraform {
 }   
     
 provider "azurerm" {
-    # Credentials should be supplied via environment variables or a shared configuration
-    # - AZURE_SUBSCRIPTION_ID, AZURE_TENANT_ID, AZURE_CLIENT_ID, AZURE_CLIENT_SECRET
-    # or by using Managed Identity / Azure CLI login.
-    # Hard‑coding secrets in source control is unsafe and triggers push protection.
+    subscription_id = var.azure_subscription_id
+    tenant_id       = var.azure_tenant_id
+    client_id       = var.azure_client_id
+    # client_secret is set via ARM_CLIENT_SECRET environment variable in HCP Terraform
     features {}
 }
