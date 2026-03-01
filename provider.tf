@@ -16,7 +16,10 @@ terraform {
 }   
     
 provider "azurerm" {
-    # Azure credentials are supplied via environment variables:
-    # ARM_SUBSCRIPTION_ID, ARM_TENANT_ID, ARM_CLIENT_ID, ARM_CLIENT_SECRET
-    features {}
+  # Azure credentials are supplied via environment variables:
+  # ARM_SUBSCRIPTION_ID, ARM_TENANT_ID, ARM_CLIENT_ID, ARM_CLIENT_SECRET
+  # Disable automatic resource provider registration when the service principal
+  # does not have permission to register providers in the subscription.
+  resource_provider_registrations = "none"
+  features {}
 }
