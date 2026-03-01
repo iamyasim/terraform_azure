@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg1" {
-    name = "RG1"
+    name = "user-xsfqtwwchxum"
     location = "eastus"
 
     tags = {
