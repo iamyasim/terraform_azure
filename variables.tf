@@ -16,6 +16,12 @@ variable "azure_client_id" {
   sensitive   = false
 }
 
+variable "azure_client_secret" {
+  description = "Azure client secret (service principal password)"
+  type        = string
+  sensitive   = true
+}
+
 variable "enviroment" {
     description = "The environment for the resources"
     type        = string
