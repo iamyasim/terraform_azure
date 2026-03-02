@@ -9,10 +9,6 @@ resource "azurerm_storage_account" "sa1" {
     location                 = data.azurerm_resource_group.rg1.location
     account_tier             = "Standard"
     account_replication_type = "LRS"
-
-    tags = {
-        environment = var.enviroment
-    }
 }
 
 resource "azurerm_storage_container" "sc1" {

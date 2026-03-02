@@ -12,8 +12,3 @@ variable "region" {
   description = "Azure region for resources"
   type        = string
 }
-
-variable "enviroment" {
-    description = "The environment for the resources"
-    type        = string
-}
