@@ -1,17 +1,13 @@
-resource "azurerm_resource_group" "rg1" {
+# Reference existing resource group (do not manage/create/destroy)
+data "azurerm_resource_group" "rg1" {
     name = var.resource_group_name
-    location = var.region
-
-    tags = {
-        environment = var.enviroment
-    }
 }
 
 resource "azurerm_storage_account" "sa1" {
-    name = "yasimstorageac1"
-    resource_group_name = azurerm_resource_group.rg1.name
-    location = azurerm_resource_group.rg1.location
-    account_tier = "Standard"
+    name                     = "yasimstorageac1"
+    resource_group_name      = data.azurerm_resource_group.rg1.name
+    location                 = data.azurerm_resource_group.rg1.location
+    account_tier             = "Standard"
     account_replication_type = "LRS"
 
     tags = {
