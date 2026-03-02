@@ -5,12 +5,12 @@ terraform {
             version = "~>4.62.0"
         }
     }
-    cloud {
-    organization = "Yasim-Prod"
-    workspaces {
-      name = "terraform_azure"
-    }
-  }
+  #   cloud {
+  #   organization = "Yasim-Prod"
+  #   workspaces {
+  #     name = "terraform_azure"
+  #   }
+  # }
 
     required_version = ">= 1.5.0"
 }   
