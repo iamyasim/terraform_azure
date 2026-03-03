@@ -1,19 +1,20 @@
 output "storage_account_id" {
   description = "The ID of the storage account"
-  value       = azurerm_storage_account.sa1.id
+  value       = azurerm_storage_account.storage_account[*].id
 }
 
 output "storage_account_name" {
   description = "The name of the storage account"
-  value       = azurerm_storage_account.sa1.name
+  value       = azurerm_storage_account.storage_account[*].name
 }
 
-output "storage_container_id" {
-  description = "The ID of the storage container"
-  value       = azurerm_storage_container.sc1.id
+output "virtual_machine_name" {
+  description = "The name of the virtual machine"
+  value       = azurerm_virtual_machine.main.name
 }
 
-output "storage_container_name" {
-  description = "The name of the storage container"
-  value       = azurerm_storage_container.sc1.name
+output "virtual_machine_id" {
+  description = "The ID of the virtual machine"
+  value       = azurerm_virtual_machine.main.id
 }
+

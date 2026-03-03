@@ -3,16 +3,20 @@ data "azurerm_resource_group" "rg1" {
     name = var.resource_group_name
 }
 
-resource "azurerm_storage_account" "sa1" {
-    name                     = "yasimstorageac1"
+resource "random_string" "storage_account_suffix" {
+  length  = 4
+  lower   = true
+  numeric = true
+  special = false
+  upper   = false
+}
+
+resource "azurerm_storage_account" "storage_account" {
+    name                     = "storageac${random_string.storage_account_suffix.result}"
     resource_group_name      = data.azurerm_resource_group.rg1.name
     location                 = data.azurerm_resource_group.rg1.location
     account_tier             = "Standard"
     account_replication_type = "LRS"
-}
-
-resource "azurerm_storage_container" "sc1" {
-    name                  = "container1"
-    storage_account_id    = azurerm_storage_account.sa1.id
-    container_access_type = "private"
+    count                    = var.stg_ac_count
+    account_kind             = "StorageV2"
 }

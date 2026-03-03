@@ -27,3 +27,9 @@ variable "tenant_id" {
   description = "Azure tenant ID (get via: az account show --query tenantId -o tsv)"
   type        = string  
 }
+
+variable "stg_ac_count" {
+  description = "Number of storage accounts to create"
+  type        = number
+  default     = 1
+}
