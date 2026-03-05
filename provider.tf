@@ -1,21 +1,13 @@
 terraform {
-  backend "local" {}
   required_providers {
-        azurerm = {
-            source = "hashicorp/azurerm"
-            version = "~>4.62.0"
-        }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>4.62.0"
     }
-  #   cloud {
-  #   organization = "Yasim-Prod"
-  #   workspaces {
-  #     name = "terraform_azure"
-  #   }
-  # }
+  }
+  required_version = ">= 1.5.0"
+}
 
-    required_version = ">= 1.5.0"
-}   
-    
 provider "azurerm" {
   subscription_id = var.subscription_id
   client_id       = var.client_id
