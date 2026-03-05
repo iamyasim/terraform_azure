@@ -1,3 +1,4 @@
+.md
 .terraform/
 # Terraform state files
 *.tfstate
